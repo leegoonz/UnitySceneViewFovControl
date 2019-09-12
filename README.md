@@ -4,7 +4,7 @@
 
 |Demo				|
 |--------------------		|
-|![demo](images/demo.gif)	|
+|![demo](images/SceneViewFovControl.gif)	|
 
 |Wide angle			|Telescopic (narrow angle)		|
 |--------------------		|-------------------------		|
