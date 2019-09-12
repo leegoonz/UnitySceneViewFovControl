@@ -17,7 +17,7 @@ namespace UTJ.UnityEditorExtension.SceneViewFovControl {
 class Status {
     float fov = 0.0f;
     bool reset = false;
-    bool autoFov = true;
+    bool autoFov = false;
     float lastOnSceneGuiFov = 0.0f;
     WeakReference slaveCamera = new WeakReference(null);
 
@@ -42,8 +42,8 @@ class Status {
 #else
     GUIContent ButtonContent = null;
 #endif
-
-    public void OnScene(SceneView sceneView) {
+    public void OnScene(SceneView sceneView) 
+    {
         if(sceneView == null
         || sceneView.camera == null
         || sceneView.in2DMode
@@ -52,12 +52,25 @@ class Status {
         }
 
         Camera camera = sceneView.camera;
+        Camera gameCamera = Camera.main;
 
-        if(!autoFov) {
-            if(fov == 0.0f || reset) {
-                fov = camera.fieldOfView;
-                reset = false;
-            }
+        void FixedUpdate()
+        {
+            fov = gameCamera.fieldOfView;
+            reset = false;
+            
+        }
+        if(!autoFov)
+        {
+            FixedUpdate(); 
+           /* 
+                if(fov == 0.0f || reset) 
+                {
+                    fov = gameCamera.fieldOfView;
+                    Debug.Log("Current FOV : " + gameCamera.fieldOfView);
+                        reset = false;
+                }
+            */
 
             var ev = Event.current;
             var settings = Settings.Data;
@@ -94,16 +107,20 @@ class Status {
         }
     }
 
-    public static void CopyCameraInfo(Camera from, Camera to) {
-        if(from == null || to == null) {
+    public static void CopyCameraInfo(Camera from, Camera to) 
+    {
+        if(from == null || to == null) 
+        {
             return;
         }
+
         to.fieldOfView = from.fieldOfView;
         to.gameObject.transform.position = from.transform.position;
         to.gameObject.transform.rotation = from.transform.rotation;
     }
 
-    public void OnSceneGUI(SceneView sceneView) {
+    public void OnSceneGUI(SceneView sceneView) 
+    {
         {
             bool f = false;
             if(!autoFov && lastOnSceneGuiFov != fov) {
@@ -118,6 +135,7 @@ class Status {
                 previousSlaveCamera = GetSlaveCamera() as System.Object;
                 f = true;
             }
+
 #if !SCENE_VIEW_FOV_CONTROL_USE_GUI_BUTTON
             if(ButtonContent == null) {
                 f = true;
@@ -262,6 +280,7 @@ class Status {
             return null;
         }
         return slaveCamera.Target as Camera;
+         
     }
 
     string GetSlaveCameraName() {
@@ -274,6 +293,7 @@ class Status {
 
     void SetSlaveCamera(Camera camera) {
         slaveCamera = new WeakReference(camera);
+        
     }
 }
 

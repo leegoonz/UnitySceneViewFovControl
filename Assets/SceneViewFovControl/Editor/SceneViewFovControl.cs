@@ -46,7 +46,8 @@ public static class SceneViewFovControl
         return s;
     }
 
-    static void OnSceneGUI(SceneView sceneView) {
+    static void OnSceneGUI(SceneView sceneView) 
+    {
         Status s = GetOrAddStatus(sceneView);
         if(s != null) {
             Handles.BeginGUI();
@@ -54,6 +55,7 @@ public static class SceneViewFovControl
             Handles.EndGUI();
         }
     }
+
 
     static void OnScene(SceneView sceneView) {
         Status s = GetOrAddStatus(sceneView);
