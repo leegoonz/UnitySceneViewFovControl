@@ -1,5 +1,3 @@
-﻿[日本語はこちら / Japanese](README.ja.md)
-
 # Unity Editor Extension Controls Field of View (FoV) in Scene View
 
 |Demo				|
