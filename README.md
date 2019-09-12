@@ -15,11 +15,6 @@ With this extension, you will now be able to do this using the Unity Editor's pr
 
 
 ## How to use
-
-- Import [this .unitypackage](https://github.com/t-mat/UnitySceneViewFovControl/releases/download/0.1.11/SceneViewFovControl.unitypackage) to your Unity project.
-    - Import from the file by selecting "Assets > Import Package > Custom Package."
-- You will be able to do the following in Scene View after importing.
-
 |Keyboard/Mouse					|Effect							|Note			|
 |--------------------				|-------------------------				|----			|
 |`FoV` button in the toolbar of Scene View	|Toggle FoV mode (auto / manual)			|			|
