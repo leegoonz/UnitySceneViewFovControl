@@ -54,7 +54,7 @@ Select "Edit" > "Scene View FoV Settings" in the Unity Editor menu to open the s
 
 ## Prerequisites
 
-This package needs Unity 5.5 or greater.  I've checked this package with Unity 5.5, 5.6 and 2017.1.
+This package needs Unity 2018.4.X or greater.
 
 
 ## References
